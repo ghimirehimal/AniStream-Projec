@@ -6,6 +6,63 @@
   <title>AniStream - Contact</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="description" content="Contact AniStream support and team for inquiries, feedback, and support." />
+  <style>
+    /* Inline styles for feedback form */
+    .feedback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+    .feedback-form label {
+      font-weight: 600;
+      color: #276749; /* emerald-700 */
+    }
+    .feedback-form input,
+    .feedback-form textarea {
+      padding: 10px;
+      border: 2px solid #38a169; /* emerald-400 */
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    .feedback-form input:focus,
+    .feedback-form textarea:focus {
+      outline: none;
+      border-color: #234e52; /* dark teal */
+    }
+    .feedback-form button {
+      background-color: #38a169; /* emerald-400 */
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      width: fit-content;
+      align-self: flex-start;
+    }
+    .feedback-form button:hover,
+    .feedback-form button:focus {
+      background-color: #276749; /* emerald-700 */
+      outline: none;
+    }
+    /* Confirmation message after submit */
+    .thank-you-message {
+      margin-top: 1rem;
+      color: #234e52;
+      font-weight: 600;
+      display: none;
+    }
+    form:target .thank-you-message {
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar" role="navigation" aria-label="Primary navigation">
@@ -39,17 +96,22 @@
       <p>
         We'd love to hear from you! Reach out for support, feedback, or inquiries.
       </p>
-      <form action="#" method="post" aria-label="Contact form">
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name" required aria-required="true" /><br /><br />
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email" required aria-required="true" /><br /><br />
+      <form action="https://formspree.io/f/mjkorwpk" method="POST" class="feedback-form" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
 
-        <label for="message">Message:</label><br />
-        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea><br /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="_replyto" placeholder="your.email@example.com" required aria-required="true" />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your message here..." required aria-required="true"></textarea>
 
         <button type="submit">Send Message</button>
+
+        <p class="thank-you-message" aria-live="polite" role="alert">
+          Thank you for your feedback! We will get back to you shortly.
+        </p>
       </form>
     </section>
 
